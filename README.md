@@ -28,18 +28,5 @@ The entire pipeline is containerized using Docker Compose, uses Kafka in KRaft m
 * Power BI connects to this API to visualize real-time trends”
 
 ## Architecture:
-flowchart TD
-  A[🌐 Public API<br>quotable.io] -->|Quotes via REST| B[🟨 Kafka Producer<br>• Clean text<br>• Remove stopwords<br>• Avro encode]
-  B --> C[🟥 Kafka Broker<br>(KRaft Mode)]
-  C --> D[🟦 Kafka Consumer<br>• Avro deserialize<br>• Word counting]
-  D --> E[🟩 PostgreSQL DB<br>word_count table]
-  E --> F[🟦 Flask REST API<br>/top-words endpoint]
-  F --> G[📊 Power BI Dashboard<br>Top 10 frequent words]
 
-  subgraph Dockerized Microservices
-    B
-    C
-    D
-    E
-    F
-  end
+![Untitled diagram-2025-03-29-023514](https://github.com/user-attachments/assets/8bd7bd95-fd4b-4219-bd3b-ff3a0e26da28)
