@@ -26,3 +26,20 @@ The entire pipeline is containerized using Docker Compose, uses Kafka in KRaft m
 * Stores the word counts in a normalized PostgreSQL table
 * Then exposes a Flask REST API for top 10 frequent words
 * Power BI connects to this API to visualize real-time trends”
+
+## Architecture:
+flowchart TD
+  A[🌐 Public API<br>quotable.io] -->|Quotes via REST| B[🟨 Kafka Producer<br>• Clean text<br>• Remove stopwords<br>• Avro encode]
+  B --> C[🟥 Kafka Broker<br>(KRaft Mode)]
+  C --> D[🟦 Kafka Consumer<br>• Avro deserialize<br>• Word counting]
+  D --> E[🟩 PostgreSQL DB<br>word_count table]
+  E --> F[🟦 Flask REST API<br>/top-words endpoint]
+  F --> G[📊 Power BI Dashboard<br>Top 10 frequent words]
+
+  subgraph Dockerized Microservices
+    B
+    C
+    D
+    E
+    F
+  end
