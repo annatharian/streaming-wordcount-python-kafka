@@ -1,0 +1,6 @@
+# Used in producer and consumer Dockerfiles
+fastavro
+confluent-kafka
+psycopg2-binary
+flask
+requests
