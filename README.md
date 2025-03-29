@@ -13,5 +13,5 @@ Imagine a book being read line-by-line in real-time, like when a user is typing 
 3. Docker & Docker Compose - for container orchestration
 
 ## About this project:
-I built a real-time data pipeline using Kafka, Avro, Flask, and PostgreSQL — fully Dockerized. It streams quotes from an API, filters out stop words using NLTK, counts word frequencies, and stores them in a PostgreSQL database. Then I expose the top frequent words through a REST API built with Flask, and visualize the results in Power BI.
+I built a real-time data pipeline using Kafka, Avro, Flask, and PostgreSQL, fully Dockerized. It streams quotes from an API, filters out stop words using NLTK, counts word frequencies, and stores them in a PostgreSQL database. Then I expose the top frequent words through a REST API built with Flask, and visualize the results in Power BI.
 The entire pipeline is containerized using Docker Compose, uses Kafka in KRaft mode (without Zookeeper), and supports Avro schema validation via Schema Registry.
