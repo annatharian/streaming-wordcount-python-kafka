@@ -15,3 +15,10 @@ Imagine a book being read line-by-line in real-time, like when a user is typing 
 ## About this project:
 I built a real-time data pipeline using Kafka, Avro, Flask, and PostgreSQL, fully Dockerized. It streams quotes from an API, filters out stop words using NLTK, counts word frequencies, and stores them in a PostgreSQL database. Then I expose the top frequent words through a REST API built with Flask, and visualize the results in Power BI.
 The entire pipeline is containerized using Docker Compose, uses Kafka in KRaft mode (without Zookeeper), and supports Avro schema validation via Schema Registry.
+* Streams quote text from a public API
+* Produces messages into Kafka using Avro schema
+* Uses a Schema Registry for validation
+* Consumes data, filters stop words using NLTK
+* Stores the word counts in a normalized PostgreSQL table
+* Then exposes a Flask REST API for top 10 frequent words
+* Power BI connects to this API to visualize real-time trends”
