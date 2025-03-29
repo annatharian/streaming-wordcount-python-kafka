@@ -8,9 +8,13 @@ A real-time data engineering project that simulates streaming text input (like a
 Imagine a book being read line-by-line in real-time, like when a user is typing it or an audio transcription. This pipeline ingests those lines and tracks word frequency instantly which is useful for log monitoring, keyword tracking, or natural language processing (NLP) in streaming applications.
 
 ## Tech Stack
-1. Apache Kafka - for real-time message streaming
-2. Python - for both producer and consumer logic
-3. Docker & Docker Compose - for container orchestration
+1. Kafka in KRaft mode (Bitnami image)
+2. Avro serialization with Schema Registry
+3. Python for the producer, consumer, and API
+4. Flask for REST endpoints
+5. PostgreSQL for storage
+6. NLTK for stop word filtering
+7. Power BI for visualization
 
 ## About this project:
 I built a real-time data pipeline using Kafka, Avro, Flask, and PostgreSQL, fully Dockerized. It streams quotes from an API, filters out stop words using NLTK, counts word frequencies, and stores them in a PostgreSQL database. Then I expose the top frequent words through a REST API built with Flask, and visualize the results in Power BI.
